@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Facade.h"
 #include "MyException.h"
+#include "Mediator.h"
 using namespace Patterns;
 
 int main()
@@ -26,5 +27,16 @@ int main()
 	{
 		std::cout << "Catched exception" << std::endl; 
 	}
+		Colegue a("a");
+		Colegue b("b");
+		Colegue c("c");
+		ConcreteMediator m;
+		m.RegColegue(&a);
+		m.RegColegue(&b);
+		m.RegColegue(&c);
+
+		c.Send("a", "hello");
+		a.Send("b", "hi");
 	return 0;
 }
+
