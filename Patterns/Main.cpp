@@ -4,6 +4,7 @@
 #include "Facade.h"
 #include "MyException.h"
 #include "Mediator.h"
+#include "Adapter.h"
 using namespace Patterns;
 
 int main()
@@ -37,5 +38,9 @@ int main()
 
 		c.Send("a", "hello");
 		a.Send("b", "hi");
+		PolarSystem p(10,80);
+		Adapter adapter(&p) ;
+		std::shared_ptr<Point2d> p2 =
+			adapter.GetCoordinate();
 	return 0;
 }
